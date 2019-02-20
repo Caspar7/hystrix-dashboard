@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 serviceName="hystrix-dashboard"
-BUILD_NUMBER=$1
 
 echo "stop and delete exist docker images and container..."
 running=`docker ps | grep ${serviceName} | awk '{print $1}'`
@@ -22,4 +21,4 @@ echo "load docker images ${serviceName}_${BUILD_NUMBER}.tar .."
 docker load -i ${serviceName}_${BUILD_NUMBER}.tar
 
 echo "run docker container..."
-docker run --env env=${env} -it -d -p 8001:8001 --name ${serviceName} ${serviceName}:$BUILD_NUMBER
+docker run -it -d -p 8001:8001 --name ${serviceName} ${serviceName}:$BUILD_NUMBER

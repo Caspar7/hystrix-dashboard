@@ -3,5 +3,3 @@ server:
 spring:
   application:
     name: hystrix-dashboard
-  profiles:
-    active: ${uat}
