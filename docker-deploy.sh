@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 serviceName="hystrix-dashboard"
-
+BUILD_NUMBER=$1
 echo "stop and delete exist docker images and container..."
 running=`docker ps | grep ${serviceName} | awk '{print $1}'`
 if [ ! -z "$running" ]; then
